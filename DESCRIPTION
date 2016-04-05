@@ -1,0 +1,19 @@
+Package: sparsebn
+Title: Software for Learning Sparse Bayesian Networks
+Version: 0.0.0.9000
+Date: 2016-04-05
+Authors@R: person("Bryon", "Aragam", email = "bryon@stat.ucla.edu", role = c("aut", "cre"))
+Maintainer: Bryon Aragam <bryon@stat.ucla.edu>
+Description: A set of tools for learning sparse Bayesian networks from high-dimensional data. (more later)
+Depends:
+    R (>= 3.2.3),
+    sparsebnUtils,
+    ccdrAlgorithm
+Imports:
+    Matrix
+Suggests:
+    graph,
+    igraph,
+    network
+License: GPL (>= 2)
+RoxygenNote: 5.0.1
