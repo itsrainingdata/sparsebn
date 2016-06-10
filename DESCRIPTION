@@ -11,9 +11,7 @@ Depends:
     ccdrAlgorithm,
     discretecdAlgorithm
 Suggests:
-    graph,
-    igraph,
-    network
+    testthat
 URL: https://github.com/itsrainingdata/sparsebn
 BugReports: https://github.com/itsrainingdata/sparsebn/issues
 License: GPL (>= 2)
