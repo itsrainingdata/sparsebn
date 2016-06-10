@@ -103,7 +103,6 @@ estimate.dag <- function(data,
 #' see Sections 2.1 and 2.2 (equation (6)) of Aragam and Zhou (2015) for more details.
 #'
 #' @param data data as \code{\link{sparsebnData}} object.
-#' @param x fitted \code{\link{sparsebnFit}} or \code{\link{sparsebnPath}} object.
 #' @param ... (optional) additional parameters to \code{\link[sparsebn]{estimate.dag}}
 #'
 #' @return

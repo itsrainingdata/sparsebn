@@ -13,8 +13,6 @@ estimate.precision(data, ...)
 \item{data}{data as \code{\link{sparsebnData}} object.}
 
 \item{...}{(optional) additional parameters to \code{\link[sparsebn]{estimate.dag}}}
-
-\item{x}{fitted \code{\link{sparsebnFit}} or \code{\link{sparsebnPath}} object.}
 }
 \value{
 Solution path as a plain \code{\link{list}}. Each component is a \code{\link[Matrix]{Matrix}}
