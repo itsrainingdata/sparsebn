@@ -92,3 +92,49 @@ estimate.dag <- function(data,
                                     upperbound = upperbound)
     }
 }
+
+#' Covariance estimation
+#'
+#' Methods for inferring (i) Covariance matrices and (ii) Precision matrices for continuous,
+#' Gaussian data.
+#'
+#' For Gaussian data, the precision matrix corresponds to an undirected graphical model for the
+#' distribution. This undirected graph can be tied to the corresponding directed graphical model;
+#' see Sections 2.1 and 2.2 (equation (6)) of Aragam and Zhou (2015) for more details.
+#'
+#' @param data data as \code{\link{sparsebnData}} object.
+#' @param x fitted \code{\link{sparsebnFit}} or \code{\link{sparsebnPath}} object.
+#' @param ... (optional) additional parameters to \code{\link[sparsebn]{estimate.dag}}
+#'
+#' @return
+#' Solution path as a plain \code{\link{list}}. Each component is a \code{\link[Matrix]{Matrix}}
+#' corresponding to an estimate of the covariance or precision (inverse covariance) matrix for a
+#' given value of lambda.
+#'
+#' @name estimate.covariance
+#' @rdname estimate.covariance
+NULL
+
+#' @rdname estimate.covariance
+#' @export
+estimate.covariance <- function(data, ...){
+    stopifnot(sparsebnUtils::is.sparsebnData(data))
+    if(data$type != "continuous"){
+        stop(sparsebnUtils::feature_not_supported("Covariance estimation for discrete models"))
+    }
+
+    estimated.dags <- estimate.dag(data, ...)
+    sparsebnUtils::get.covariance(estimated.dags, data)
+}
+
+#' @rdname estimate.covariance
+#' @export
+estimate.precision <- function(data, ...){
+    stopifnot(sparsebnUtils::is.sparsebnData(data))
+    if(data$type != "continuous"){
+        stop(sparsebnUtils::feature_not_supported("Precision matrix estimation for discrete models"))
+    }
+
+    estimated.dags <- estimate.dag(data, ...)
+    sparsebnUtils::get.precision(estimated.dags, data)
+}
