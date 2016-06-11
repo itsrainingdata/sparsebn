@@ -65,12 +65,15 @@ dags.out <- estimate.dag(data = dat,
 dags.out
 ```
 
-Note that the output is a \emph{solution path} (stored internally as a `sparsebnPath` object), instead of a single estimate. In order to select a particular DAG, we need to do model selection (not implemented yet).
+Note that the output is a _solution path_ (stored internally as a `sparsebnPath` object), instead of a single estimate. In order to select a particular DAG, we need to do model selection (not implemented yet).
 
 As expected, the third estimate in our solution path gives the correct estimate:
 ```{r}
 dags.out[[3]]
 get.adjacency.matrix(dags.out[[3]])
+plot(dags.out[[3]], 
+     vertex.size = 50, 
+     layout = t(matrix(c(0,1,10,1,20,1), nrow=2)))
 ```
 
 ## Another Example
