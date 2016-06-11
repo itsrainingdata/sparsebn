@@ -30,7 +30,8 @@
 #' @param error.tol Error tolerance for the algorithm, used to test for convergence.
 #' @param max.iters Maximum number of iterations for each internal sweep.
 #' @param edge.threshold Threshold parameter used to terminate the algorithm whenever the number of edges in the
-#'              current estimate has \code{> edge.threshold} edges.
+#'              current estimate has \code{> edge.threshold} edges. NOTE: This is not the same as \code{alpha} in
+#'              \code{\link[ccdrAlgorithm]{ccdr.run}}.
 #' @param concavity (CCDr only) Value of concavity parameter. If \code{gamma > 0}, then the MCP will be used
 #'              with \code{gamma} as the concavity parameter. If \code{gamma < 0}, then the L1 penalty
 #'              will be used and this value is otherwise ignored.
@@ -55,6 +56,12 @@ estimate.dag <- function(data,
                          verbose = FALSE
 ){
     pp <- ncol(data$data)
+
+    ### Check for missing values
+    num_missing_values <- sparsebnUtils::count_nas(data$data)
+    if(num_missing_values > 0){
+        stop(warning(has_missing_values(num_missing_values))) # this is an error, not a warning! (compare sparsebnData constructor)
+    }
 
     ### Set edge threshold (alpha in paper)
     if(is.null(edge.threshold)){

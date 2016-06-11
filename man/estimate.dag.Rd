@@ -23,7 +23,8 @@ has also been specified, this value will be ignored.}
 \item{max.iters}{Maximum number of iterations for each internal sweep.}
 
 \item{edge.threshold}{Threshold parameter used to terminate the algorithm whenever the number of edges in the
-current estimate has \code{> edge.threshold} edges.}
+current estimate has \code{> edge.threshold} edges. NOTE: This is not the same as \code{alpha} in
+\code{\link[ccdrAlgorithm]{ccdr.run}}.}
 
 \item{concavity}{(CCDr only) Value of concavity parameter. If \code{gamma > 0}, then the MCP will be used
 with \code{gamma} as the concavity parameter. If \code{gamma < 0}, then the L1 penalty
