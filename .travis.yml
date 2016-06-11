@@ -1,0 +1,14 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: false
+cache: packages
+
+# BiocInstaller required for 'graph' package from Bioconductor
+bioc_required: true
+
+# Install up-to-date dependencies from GitHub
+r_github_packages:
+    - itsrainingdata/sparsebnUtils
+    - itsrainingdata/ccdrAlgorithm
+    - gujyjean/discretecdAlgorithm
