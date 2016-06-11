@@ -4,6 +4,12 @@ language: R
 sudo: false
 cache: packages
 
+# Test on release, old, and development versions of R
+r:
+ - oldrel
+ - release
+ - devel
+
 # BiocInstaller required for 'graph' package from Bioconductor
 bioc_required: true
 
