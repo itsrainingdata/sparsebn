@@ -21,6 +21,6 @@ The main methods for learning graphical models in \code{\link{sparsebn}} are:
 
 The workhorse behind \code{\link{sparsebn}} is the \code{\link[sparsebnUtils]{sparsebnUtils}}
 package, which provides various S3 classes and methods for representing and manipulating graphs.
-sFor more details on this package and the functionality it provides, see \code{?sparsebnUtils}.
+For more details on this package and the functionality it provides, see \code{?sparsebnUtils}.
 }
 
