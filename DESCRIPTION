@@ -20,3 +20,4 @@ BugReports: https://github.com/itsrainingdata/sparsebn/issues
 License: GPL (>= 2)
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
+LazyData: true
