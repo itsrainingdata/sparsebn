@@ -8,10 +8,19 @@
 #'
 "pathfinder"
 
-#' The cytometry dataset
+#' The cytometry network
 #'
-#' A discretized version of the dataset from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
+#' Data and network for analyzing the flow cytometry experiment
+#' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
+#' The data is a cleaned and discretized version of the raw data from these experiments.
 #'
-#' @format An \code{\link{data.frame}} with 11 variables and 5400 observations.
+#' @format A \code{\link{list}} with three components:
 #'
-"cytometryDiscrete"
+#' \itemize{
+#' \item \code{dag} An \code{\link[sparsebnUtils]{edgeList}} containing the consensus network (11 nodes, 17 edges).
+#' \item \code{data} A \code{\link{data.frame}} with 11 variables and 5400 observations.
+#' \item \code{ivn} A \code{\link{list}} specifying which nodes are under intervention in each observation.
+#' Compatible with the input to \code{\link[sparsebnUtils]{sparsebnData}}.
+#' }
+#'
+"cytometry"
