@@ -81,8 +81,8 @@ First, load the data and construct a covariance matrix:
 
 ```{r}
 data(pathfinder)
-A <- as.matrix(get.adjacency.matrix(pathfinder)) # pathfinder network as an adjacency matrix
-id <- diag(rep(1, num.nodes(pathfinder)))        # 109x109 identity matrix
+A <- as.matrix(get.adjacency.matrix(pathfinder$dag)) # pathfinder network as an adjacency matrix
+id <- diag(rep(1, num.nodes(pathfinder$dag)))        # 109x109 identity matrix
 Sigma <- solve(t(id - A)) %*% id %*% solve(id - A)
 ```
 
@@ -121,8 +121,8 @@ plot(solution,
 
 For comparison, let's plot the original pathfinder graph. 
 ```{r}
-plot(pathfinder,
-     layout = igraph::layout.circle(to_igraph(pathfinder)),
+plot(pathfinder$dag,
+     layout = igraph::layout.circle(to_igraph(pathfinder$dag)),
      vertex.label = NA,
      vertex.size = 5,
      vertex.color = gray(0.75),
