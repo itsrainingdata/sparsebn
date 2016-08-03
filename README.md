@@ -22,6 +22,8 @@ The main methods for learning graphical models are:
 -   `estimate.precision` for undirected graphs (Markov random fields).
 -   `estimate.covariance` for covariance matrices.
 
+Currently, estimation of precision and covariances matrices is limited to Gaussian data.
+
 Installation
 ------------
 
@@ -38,3 +40,14 @@ You can install:
     ``` r
     devtools::install_github(c("itsrainingdata/sparsebn/", "itsrainingdata/sparsebnUtils/dev", "itsrainingdata/ccdrAlgorithm/dev", "gujyjean/discretecdAlgorithm"))
     ```
+
+References
+==========
+
+\[1\] B. Aragam and Q. Zhou. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) *The Journal of Machine Learning Research*. 16(Nov):2273−2328.
+
+\[2\] Fu, F., Gu, J., and Zhou, Q. (2014). [Adaptive penalized estimation of directed acyclic graphs from categorical data.](http://arxiv.org/abs/1403.2310) arXiv: 1403.2310.
+
+\[3\] Aragam, B., Amini, A. A., and Zhou, Q. (2015). [Learning directed acyclic graphs with penalized neighbourhood regression.](http://arxiv.org/abs/1511.08963) arXiv: 1511.08963.
+
+\[4\] Fu, F. and Zhou, Q. (2013). [Learning sparse causal Gaussian networks with experimental intervention: Regularization and coordinate descent.](http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.754359) Journal of the American Statistical Association, 108: 288-300.
