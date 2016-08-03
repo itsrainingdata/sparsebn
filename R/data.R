@@ -23,4 +23,4 @@
 #' Compatible with the input to \code{\link[sparsebnUtils]{sparsebnData}}.
 #' }
 #'
-"cytometry"
+"cytometryDiscrete"
