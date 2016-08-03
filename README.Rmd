@@ -53,7 +53,7 @@ You can install:
     ```R
     devtools::install_github(c("itsrainingdata/sparsebn/", "itsrainingdata/sparsebnUtils/dev", "itsrainingdata/ccdrAlgorithm/dev", "gujyjean/discretecdAlgorithm"))
     ```
-    
+
 ## References
 
 \[1\] B. Aragam and Q. Zhou. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
