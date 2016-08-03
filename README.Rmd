@@ -56,7 +56,7 @@ You can install:
 
 ## References
 
-\[1\] B. Aragam and Q. Zhou. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
+\[1\] Aragam, B. and Zhou, Q. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
 
 \[2\] Fu, F., Gu, J., and Zhou, Q. (2014). [Adaptive penalized estimation of directed acyclic graphs from categorical data.](http://arxiv.org/abs/1403.2310) arXiv: 1403.2310. 
 
