@@ -11,7 +11,7 @@ Methods for learning sparse Bayesian networks and other graphical models from hi
 -   Datasets with thousands of variables (tested up to *p*=8000)
 -   Continuous and discrete data
 
-The workhorse behind `sparsebn` is the [`sparsebnUtils`](http://www.github.com/itsrainingdata/sparsebnUtils/) package, which provides various S3 classes and methods for representing and manipulating graphs. The basic algorithms are implemented in [`ccdrAlgorithm`](http://www.github.com/itsrainingdata/ccdrAlgorithm/) and [`discretecdAlgorithm`](http://www.github.com/gujyjean/discretecdAlgorithm/).
+The workhorse behind [`sparsebn`](http://www.github.com/itsrainingdata/sparsebn/) is the [`sparsebnUtils`](http://www.github.com/itsrainingdata/sparsebnUtils/) package, which provides various S3 classes and methods for representing and manipulating graphs. The basic algorithms are implemented in [`ccdrAlgorithm`](http://www.github.com/itsrainingdata/ccdrAlgorithm/) and [`discretecdAlgorithm`](http://www.github.com/gujyjean/discretecdAlgorithm/).
 
 Overview
 --------
