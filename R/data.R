@@ -8,11 +8,11 @@
 #'
 "pathfinder"
 
-#' The cytometry network
+#' The discrete cytometry network
 #'
 #' Data and network for analyzing the flow cytometry experiment
 #' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
-#' The data is a cleaned and discretized version of the raw data from these experiments.
+#' The data is a cleaned and discretized version of the raw data (see \code{\link{cytometryContinuous}}) from these experiments.
 #'
 #' @format A \code{\link{list}} with three components:
 #'
@@ -23,4 +23,37 @@
 #' Compatible with the input to \code{\link[sparsebnUtils]{sparsebnData}}.
 #' }
 #'
+#' @usage
+#' data(cytometryDiscrete)
+#'
+#' @examples
+#' # Create a valid sparsebnData object from the cytometry data
+#' data(cytometryDiscrete)
+#' dat <- sparsebnData(cytometryDiscrete$data, ivn = cytometryDiscrete$ivn)
+#'
 "cytometryDiscrete"
+
+#' The continuous cytometry network
+#'
+#' Data and network for analyzing the flow cytometry experiment
+#' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
+#' This dataset contains the raw measurements from these experiments.
+#'
+#' @format A \code{\link{list}} with three components:
+#'
+#' \itemize{
+#' \item \code{dag} An \code{\link[sparsebnUtils]{edgeList}} containing the consensus network (11 nodes, 17 edges).
+#' \item \code{data} A \code{\link{data.frame}} with 11 variables and 7466 observations.
+#' \item \code{ivn} A \code{\link{list}} specifying which nodes are under intervention in each observation.
+#' Compatible with the input to \code{\link[sparsebnUtils]{sparsebnData}}.
+#' }
+#'
+#' @usage
+#' data(cytometryContinuous)
+#'
+#' @examples
+#' # Create a valid sparsebnData object from the cytometry data
+#' data(cytometryContinuous)
+#' dat <- sparsebnData(cytometryContinuous$data, ivn = cytometryContinuous$ivn)
+#'
+"cytometryContinuous"
