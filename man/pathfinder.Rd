@@ -4,14 +4,40 @@
 \name{pathfinder}
 \alias{pathfinder}
 \title{The pathfinder network}
-\format{An \code{\link{edgeList}} object with 109 nodes and 195 edges.}
+\format{A \code{\link{list}} with four components:
+
+\itemize{
+\item \code{dag} An \code{\link[sparsebnUtils]{edgeList}} containing the pathfinder network (109 nodes, 195 edges).
+\item \code{data} A \code{\link{data.frame}} with 109 variables and 1000 observations.
+\item \code{ivn} A \code{\link{list}} specifying which nodes are under intervention in each observation; since this dataset
+is purely observational, this is just \code{NULL}. Compatible with the input to \code{\link[sparsebnUtils]{sparsebnData}}.
+\item \code{cov} Covariance matrix used to generate the data.
+}}
 \usage{
-pathfinder
+data(pathfinder)
 }
 \description{
-The pathfinder network from the \href{http://www.bnlearn.com/bnrepository/#pathfinder}{Bayesian network repository}.
-Pathfinder is an expert system developed in 1992 by Heckerman et. al
+Simulated data and network for the pathfinder network from the \href{http://www.bnlearn.com/bnrepository/#pathfinder}{Bayesian network repository}.
+Pathfinder is an expert system developed by Heckerman et. al (1992)
 to assist with the diagnosis of lymph-node diseases.
+}
+\details{
+The data is simulated from a Gaussian SEM assuming unit edge weights and
+unit variances for all nodes.
+}
+\examples{
+# Create a valid sparsebnData object from the simulated pathfinder data
+data(pathfinder)
+dat <- sparsebnData(pathfinder$data)
+
+# If desired, change the edge weights to be randomly generated
+coefs <- get.adjacency.matrix(pathfinder$dag)
+coefs[coefs != 0] <- runif(n = num.edges(pathfinderDAG), min = 0.5, max = 2)
+vars <- Matrix::Diagonal(n = num.nodes(pathfinderDAG), x = rep(1, num.nodes(pathfinderDAG)))
+id <- vars
+covMat <- t(solve(id - coefs)) \%*\% vars \%*\% solve(id - coefs)
+pathfinder.data <- rmvnorm(n = 1000, sigma = as.matrix(covMat))
+
 }
 \keyword{datasets}
 
