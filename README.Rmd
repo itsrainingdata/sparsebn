@@ -16,8 +16,7 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/itsrainingdata/sparsebn.svg?branch=master)](https://travis-ci.org/itsrainingdata/sparsebn)
 
-Methods for learning sparse Bayesian networks and other graphical models from
-high-dimensional data via sparse regularization. Designed to handle:
+Methods for learning sparse Bayesian networks and other graphical models from high-dimensional data via sparse regularization. Designed to handle:
 
 - Experimental data with interventions 
 - Mixed observational / experimental data
