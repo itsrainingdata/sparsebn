@@ -23,7 +23,7 @@ This dataset contains the raw measurements from these experiments.
 \examples{
 # Create a valid sparsebnData object from the cytometry data
 data(cytometryContinuous)
-dat <- sparsebnData(cytometryContinuous$data, ivn = cytometryContinuous$ivn)
+dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 
 }
 \keyword{datasets}

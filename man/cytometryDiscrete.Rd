@@ -23,7 +23,7 @@ The data is a cleaned and discretized version of the raw data (see \code{\link{c
 \examples{
 # Create a valid sparsebnData object from the cytometry data
 data(cytometryDiscrete)
-dat <- sparsebnData(cytometryDiscrete$data, ivn = cytometryDiscrete$ivn)
+dat <- sparsebnData(cytometryDiscrete$data, type = "d", ivn = cytometryDiscrete$ivn)
 
 }
 \keyword{datasets}

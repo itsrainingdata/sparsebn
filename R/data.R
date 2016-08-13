@@ -23,9 +23,10 @@
 #' data(pathfinder)
 #'
 #' @examples
+#' \dontrun{
 #' # Create a valid sparsebnData object from the simulated pathfinder data
 #' data(pathfinder)
-#' dat <- sparsebnData(pathfinder$data)
+#' dat <- sparsebnData(pathfinder$data, type = "c")
 #'
 #' # If desired, change the edge weights to be randomly generated
 #' coefs <- get.adjacency.matrix(pathfinder$dag)
@@ -34,6 +35,7 @@
 #' id <- vars
 #' covMat <- t(solve(id - coefs)) %*% vars %*% solve(id - coefs)
 #' pathfinder.data <- rmvnorm(n = 1000, sigma = as.matrix(covMat))
+#' }
 #'
 "pathfinder"
 
@@ -58,7 +60,7 @@
 #' @examples
 #' # Create a valid sparsebnData object from the cytometry data
 #' data(cytometryDiscrete)
-#' dat <- sparsebnData(cytometryDiscrete$data, ivn = cytometryDiscrete$ivn)
+#' dat <- sparsebnData(cytometryDiscrete$data, type = "d", ivn = cytometryDiscrete$ivn)
 #'
 "cytometryDiscrete"
 
@@ -83,6 +85,6 @@
 #' @examples
 #' # Create a valid sparsebnData object from the cytometry data
 #' data(cytometryContinuous)
-#' dat <- sparsebnData(cytometryContinuous$data, ivn = cytometryContinuous$ivn)
+#' dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 #'
 "cytometryContinuous"

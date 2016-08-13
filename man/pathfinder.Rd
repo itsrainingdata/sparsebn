@@ -26,9 +26,10 @@ The data is simulated from a Gaussian SEM assuming unit edge weights and
 unit variances for all nodes.
 }
 \examples{
+\dontrun{
 # Create a valid sparsebnData object from the simulated pathfinder data
 data(pathfinder)
-dat <- sparsebnData(pathfinder$data)
+dat <- sparsebnData(pathfinder$data, type = "c")
 
 # If desired, change the edge weights to be randomly generated
 coefs <- get.adjacency.matrix(pathfinder$dag)
@@ -37,6 +38,7 @@ vars <- Matrix::Diagonal(n = num.nodes(pathfinderDAG), x = rep(1, num.nodes(path
 id <- vars
 covMat <- t(solve(id - coefs)) \%*\% vars \%*\% solve(id - coefs)
 pathfinder.data <- rmvnorm(n = 1000, sigma = as.matrix(covMat))
+}
 
 }
 \keyword{datasets}
