@@ -1,3 +1,6 @@
-^.*\.Rproj$
+### For some reason Hadley's regex's from http://r-pkgs.had.co.nz/package.html are being ignored, so do this manually
+^cran-comments\.md$
+^README\.Rmd$
+^sparsebn\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
