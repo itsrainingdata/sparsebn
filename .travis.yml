@@ -4,9 +4,8 @@ language: R
 sudo: false
 cache: packages
 
-env:
-  global:
-    - R_CHECK_ARGS="--no-build-vignettes --no-manual"
+r_build_args: --no-build-vignettes --no-manual --no-resave-data
+r_check_args: --no-build-vignettes --no-manual
 
 # Test master and dev branches
 branches:
@@ -24,8 +23,7 @@ r:
 bioc_required: true
 
 # Install up-to-date dependencies from GitHub
-r_github_packages:
-    - itsrainingdata/sparsebnUtils
-    - itsrainingdata/ccdrAlgorithm
-    - gujyjean/discretecdAlgorithm
-
+#r_github_packages:
+#    - itsrainingdata/sparsebnUtils
+#    - itsrainingdata/ccdrAlgorithm
+#    - gujyjean/discretecdAlgorithm
