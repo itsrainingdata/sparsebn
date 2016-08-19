@@ -23,7 +23,7 @@ r:
 bioc_required: true
 
 # Install up-to-date dependencies from GitHub
-#r_github_packages:
-#    - itsrainingdata/sparsebnUtils
-#    - itsrainingdata/ccdrAlgorithm
-#    - gujyjean/discretecdAlgorithm
+r_github_packages:
+    - itsrainingdata/sparsebnUtils
+    - itsrainingdata/ccdrAlgorithm
+    - gujyjean/discretecdAlgorithm
