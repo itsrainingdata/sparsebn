@@ -15,6 +15,7 @@ Suggests:
     rmarkdown,
     mvtnorm,
     igraph,
+    graph,
     testthat
 URL: https://github.com/itsrainingdata/sparsebn
 BugReports: https://github.com/itsrainingdata/sparsebn/issues
