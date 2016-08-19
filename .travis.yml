@@ -4,6 +4,10 @@ language: R
 sudo: false
 cache: packages
 
+env:
+  global:
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual"
+
 # Test master and dev branches
 branches:
     only:
@@ -24,3 +28,4 @@ r_github_packages:
     - itsrainingdata/sparsebnUtils
     - itsrainingdata/ccdrAlgorithm
     - gujyjean/discretecdAlgorithm
+
