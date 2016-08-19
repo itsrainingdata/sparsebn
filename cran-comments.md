@@ -15,6 +15,15 @@ New submission
 
 This is the first version of this package that has been submitted to CRAN.
 
+## Re-submission notes
+- I get
+
+Reading CITATION file fails with
+  $ operator is invalid for atomic vectors
+when package is not installed.
+
+Fixed by replacing packageDecription with meta as described in Section 1.9 of R-exts.
+
 ## Dependencies
 
 CHECK has been run on all dependencies and passed.

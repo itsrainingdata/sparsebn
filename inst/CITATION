@@ -1,8 +1,7 @@
 citHeader("To cite sparsebn in publications use:")
 
-desc <- utils::packageDescription("sparsebn")
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)
-vers <- paste("R package version", desc$Version)
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
 
 citEntry(entry = "Manual",
   title        = "sparsebn: Learning Sparse Bayesian Networks from High-Dimensional Data",
