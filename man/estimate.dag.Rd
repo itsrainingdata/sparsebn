@@ -49,4 +49,14 @@ combination of discrete / continuous and observational / experimental data.
 For details on the underlying methods, see \code{\link[ccdrAlgorithm]{ccdr.run}}
 and \code{\link[discretecdAlgorithm]{cd.run}}.
 }
+\examples{
+
+\dontrun{
+# Estimate a DAG from the cytometry data
+data(cytometryContinuous)
+dat <- sparsebnData(cytometryContinuous$data, type = "d", ivn = cytometryContinuous$ivn)
+estimate.dag(dat)
+}
+
+}
 

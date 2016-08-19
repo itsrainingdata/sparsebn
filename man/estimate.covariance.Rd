@@ -28,4 +28,14 @@ For Gaussian data, the precision matrix corresponds to an undirected graphical m
 distribution. This undirected graph can be tied to the corresponding directed graphical model;
 see Sections 2.1 and 2.2 (equation (6)) of Aragam and Zhou (2015) for more details.
 }
+\examples{
+
+\dontrun{
+data(cytometryContinuous)
+dat <- sparsebnData(cytometryContinuous$data, type = "d", ivn = cytometryContinuous$ivn)
+estimate.covariance(dat) # estimate covariance
+estimate.precision(dat)  # estimate precision
+}
+
+}
 
