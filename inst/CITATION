@@ -1,6 +1,6 @@
 citHeader("To cite sparsebn in publications use:")
 
-desc <- packageDescription("sparsebn")
+desc <- utils::packageDescription("sparsebn")
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)
 vers <- paste("R package version", desc$Version)
 

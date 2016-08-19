@@ -4,6 +4,12 @@ language: R
 sudo: false
 cache: packages
 
+# Test master and dev branches
+branches:
+    only:
+        - master
+        - dev
+
 # Test on release, old, and development versions of R
 r:
  - oldrel

@@ -1,10 +1,10 @@
 Package: sparsebn
 Title: Learning Sparse Bayesian Networks from High-Dimensional Data
-Version: 0.0.0.9000
-Date: 2016-04-05
+Version: 0.0.1
+Date: 2016-08-12
 Authors@R: person("Bryon", "Aragam", email = "sparsebn@gmail.com", role = c("aut", "cre"))
 Maintainer: Bryon Aragam <sparsebn@gmail.com>
-Description: Methods and tools for learning sparse Bayesian networks from high-dimensional data using sparse regularization.
+Description: Fast methods for learning sparse Bayesian networks from high-dimensional data using sparse regularization. Designed to incorporate mixed experimental and observational data with thousands of variables with either continuous or discrete observations.
 Depends:
     R (>= 3.2.3),
     sparsebnUtils,
