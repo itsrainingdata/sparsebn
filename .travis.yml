@@ -4,6 +4,15 @@ language: R
 sudo: false
 cache: packages
 
+#r_build_args: --no-build-vignettes --no-manual --no-resave-data
+#r_check_args: --no-build-vignettes --no-manual
+
+# Test master and dev branches
+branches:
+    only:
+        - master
+        - dev
+
 # Test on release, old, and development versions of R
 r:
  - oldrel

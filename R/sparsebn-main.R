@@ -11,6 +11,8 @@
 #
 #   CONTENTS:
 #       estimate.dag
+#       estimate.covariance
+#       estimate.precision
 #
 
 #' Estimate a DAG from data
@@ -41,6 +43,15 @@
 #' @param verbose \code{TRUE / FALSE} whether or not to print out progress and summary reports.
 #'
 #' @return A \code{\link[sparsebnUtils]{sparsebnPath}} object.
+#'
+#' @examples
+#'
+#' \dontrun{
+#' # Estimate a DAG from the cytometry data
+#' data(cytometryContinuous)
+#' dat <- sparsebnData(cytometryContinuous$data, type = "d", ivn = cytometryContinuous$ivn)
+#' estimate.dag(dat)
+#' }
 #'
 #' @export
 estimate.dag <- function(data,
@@ -116,6 +127,15 @@ estimate.dag <- function(data,
 #' Solution path as a plain \code{\link{list}}. Each component is a \code{\link[Matrix]{Matrix}}
 #' corresponding to an estimate of the covariance or precision (inverse covariance) matrix for a
 #' given value of lambda.
+#'
+#' @examples
+#'
+#' \dontrun{
+#' data(cytometryContinuous)
+#' dat <- sparsebnData(cytometryContinuous$data, type = "d", ivn = cytometryContinuous$ivn)
+#' estimate.covariance(dat) # estimate covariance
+#' estimate.precision(dat)  # estimate precision
+#' }
 #'
 #' @name estimate.covariance
 #' @rdname estimate.covariance
