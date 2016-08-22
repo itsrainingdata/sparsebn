@@ -9,10 +9,8 @@
 #' @import sparsebnUtils ccdrAlgorithm discretecdAlgorithm
 
 .onAttach <- function(libname, pkgname){
-    desc <- utils::packageDescription("sparsebn")
-
     msg <- paste0("\n",
-                  "sparsebn v", desc$Version, ", Copyright (c) 2016\n",
+                  "sparsebn v0.0.1, Copyright (c) 2016\n",
                   "\tBryon Aragam, University of California, Los Angeles\n",
                   "\tJiaying Gu, University of California, Los Angeles\n",
                   "\tDacheng Zhang, University of California, Los Angeles\n",
