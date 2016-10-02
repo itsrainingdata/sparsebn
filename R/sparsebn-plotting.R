@@ -20,7 +20,7 @@ plotDAG <- function(x){
     ### Must use igraph for the default method
     current_plot_pkg <- getPlotPackage()
     if(current_plot_pkg != "igraph"){
-        err_msg <- sprintf("This method requires that the 'igraph' package be set as your plotting package. You are currently set to use the %s package instead. Please set this packge to be 'igraph', or use the default plot() method from the %s package instead. See ?setPlotPackage for details.", current_plot_pkg, current_plot_pkg)
+        err_msg <- sprintf("This method requires that the 'igraph' package be set as your plotting package. You are currently set to use the '%s' package instead. Please set this packge to be 'igraph', or use the default plot() method from the %s package instead. See ?setPlotPackage for more details.", current_plot_pkg, current_plot_pkg)
         stop(err_msg)
     }
 
