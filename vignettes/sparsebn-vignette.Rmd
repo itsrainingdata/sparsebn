@@ -141,7 +141,7 @@ dags.out
 
 Let's visualize the solution with 195 edges. For this, we use the `igraph` package:
 ```{r}
-solution <- get.solution(dags.out, edges = 195)
+solution <- select(dags.out, edges = 195)
 plot(solution,
      layout = igraph::layout.circle(to_igraph(solution$edges)),
      vertex.label = NA,
@@ -164,10 +164,10 @@ plot(pathfinder$dag,
      edge.arrow.size = .25)
 ```
 
-We can also use the parameter selection technique described in \[[4](#references)\] to automatically select a good index (see `?select.parameter` for more details):
+Alternatively, we can automatically select a good solution using `select.parameter`:
 ```{r}
 select.idx <- select.parameter(dags.out, dat)
-solution <- get.solution(dags.out, index = select.idx)
+solution <- select(dags.out, index = select.idx)
 plot(solution,
      layout = igraph::layout.circle(to_igraph(solution$edges)),
      vertex.label = NA,
@@ -227,13 +227,3 @@ B[B!=0] <- runif(n = num.edges(pathfinder$dag), min = 0.5, max = 2)
 Sigma <- solve(t(id - B)) %*% Omega %*% solve(id - B)
 gaussian.data <- mvtnorm::rmvnorm(nn, sigma = Sigma)
 ```
-
-## References
-
-\[1\] Aragam, B. and Zhou, Q. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
-
-\[2\] Fu, F., Gu, J., and Zhou, Q. (2014). [Adaptive penalized estimation of directed acyclic graphs from categorical data.](http://arxiv.org/abs/1403.2310) arXiv: 1403.2310. 
-
-\[3\] Aragam, B., Amini, A. A., and Zhou, Q. (2015). [Learning directed acyclic graphs with penalized neighbourhood regression.](http://arxiv.org/abs/1511.08963) arXiv: 1511.08963.
-
-\[4\] Fu, F. and Zhou, Q. (2013). [Learning sparse causal Gaussian networks with experimental intervention: Regularization and coordinate descent.](http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.754359) Journal of the American Statistical Association, 108: 288-300.
