@@ -11,6 +11,7 @@
 #
 #   CONTENTS:
 #       plotDAG
+#       plotDAG.edgeList
 #       plotDAG.sparsebnFit
 #       plotDAG.sparsebnPath
 #
