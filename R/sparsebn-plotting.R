@@ -16,6 +16,19 @@
 #       plotDAG.sparsebnPath
 #
 
+#' Plot a DAG
+#'
+#' Using some sensible defaults for large graphs, plot a DAG object. Uses \code{\link[igraph]{igraph}}
+#' package by default.
+#'
+#' This method is not intended for customization. For more control over the output, use
+#' \code{\link{plot}} and see \code{\link{setPlotPackage}} for plotting only and/or
+#' \code{\link{setGraphPackage}} for even more control. These methods grants the user the full
+#' feature set of the selected package.
+#'
+#' @param x An \code{\link{edgeList}}, \code{\link{sparsebnFit}}, or \code{\link{sparsebnPath}} object.
+#' @param ... Additional arguments to \code{\link{plot}}.
+#'
 #' @export
 plotDAG <- function(x){
     ### Must use igraph for the default method

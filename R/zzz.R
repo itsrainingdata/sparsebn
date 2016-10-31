@@ -7,6 +7,8 @@
 #
 
 #' @import sparsebnUtils ccdrAlgorithm discretecdAlgorithm
+#' @importFrom grDevices gray rgb
+#' @importFrom graphics plot
 
 .onAttach <- function(libname, pkgname){
     msg <- paste0("\n",
