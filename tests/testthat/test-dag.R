@@ -10,6 +10,7 @@ test_that("", {
 test_that("DAG estimation runs without errors", {
     expect_error(estimate.dag(dat_cts), NA)  # continuous data
     expect_error(estimate.dag(dat_disc), NA) # discrete data
+    expect_error(estimate.dag(dat_disc, adaptive = TRUE), NA) # adaptive algorithm
 })
 
 test_that("estimate.dag returns expected output", {
