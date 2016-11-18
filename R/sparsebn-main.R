@@ -40,6 +40,7 @@
 #' @param weight.scale (CD only) A postitive number to scale weight matrix.
 #' @param convLb (CD only) Small positive number used in Hessian approximation.
 #' @param upperbound (CD only) A large positive value used to truncate the adaptive weights. A -1 value indicates that there is no truncation.
+#' @param adaptive (CD only) \code{TRUE / FALSE}, if \code{TRUE} the adaptive algorithm will be run.
 #' @param verbose \code{TRUE / FALSE} whether or not to print out progress and summary reports.
 #'
 #' @return A \code{\link[sparsebnUtils]{sparsebnPath}} object.
@@ -64,6 +65,7 @@ estimate.dag <- function(data,
                          weight.scale = 1.0,
                          convLb = 0.01,
                          upperbound = 100.0,
+                         adaptive = FALSE,
                          verbose = FALSE
 ){
     pp <- ncol(data$data)
@@ -107,7 +109,8 @@ estimate.dag <- function(data,
                                     error.tol = error.tol,
                                     convLb = convLb,
                                     weight.scale = weight.scale,
-                                    upperbound = upperbound)
+                                    upperbound = upperbound,
+                                    adaptive = adaptive)
     }
 }
 
