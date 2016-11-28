@@ -1,5 +1,5 @@
 ---
-title: "Introduction to sparsebn"
+title: "Introduction to the sparsebn package"
 author: "Bryon Aragam"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -17,9 +17,6 @@ vignette: >
 - Datasets with thousands of variables (tested up to _p_=8000)
 - Continuous and discrete data
 
-The workhorse behind [`sparsebn`](http://www.github.com/itsrainingdata/sparsebn/) is the [`sparsebnUtils`](http://www.github.com/itsrainingdata/sparsebnUtils/)
-package, which provides various S3 classes and methods for representing and manipulating graphs. The basic algorithms are implemented in [`ccdrAlgorithm`](http://www.github.com/itsrainingdata/ccdrAlgorithm/) and [`discretecdAlgorithm`](http://www.github.com/gujyjean/discretecdAlgorithm/).
-
 The main methods for learning graphical models are:
 
 * `estimate.dag` for directed acyclic graphs (Bayesian networks).
@@ -28,7 +25,7 @@ The main methods for learning graphical models are:
 
 Currently, estimation of precision and covariances matrices is limited to Gaussian data.
 
-## Introduction: Structure learning in five lines of code
+## tl;dr: Structure learning in five lines of code
 
 The following example illustrates how to use `sparsebn` to learn a Bayesian network in just a few lines of code. An explanation of this code can be found in the next section.
 
@@ -51,7 +48,7 @@ data(pathfinder)
 dat <- sparsebnData(pathfinder$data, type = "continuous", ivn = NULL)
 ```
 
-The `sparsebnData` object keeps track of what kind of data we are working with: Is it discrete or continuous, does it contain an interventions, and if it is discrete, what are the factor levels in the data? The argument `type = "continuous"` specifies that this data is continuous, and `ivn = NULL` indicate that there are no interventions. 
+The `sparsebnData` object keeps track of what kind of data we are working with: Is it discrete or continuous, does it contain any interventions, and if it is discrete, what are the factor levels in the data? The argument `type = "continuous"` specifies that this data is continuous, and `ivn = NULL` indicate that there are no interventions. 
 
 Now we can run the algorithm:
 
@@ -87,9 +84,9 @@ plot(solution,
 )
 ```
 
-On the left, we use the `plotDAG` method, which uses some sensible defaults for plotting large graphs. On the right, we use the `plot` method to use an organized circular layout and change some graphical parameters. The `plot` method allows the user to use the `igraph`, `network`, or `graph` packages for visualization. See `?setPlotPackage` for more details.
+On the left, we use the `plotDAG` method, which uses some sensible defaults for plotting large graphs. On the right, we use the `plot` method (by default, imported from the `igraph` package) in order to use an organized circular layout and change some graphical parameters. The `sparsebn` package allows the user to use the `igraph`, `network`, or `graph` packages for visualization via the `plot` method. See `?setPlotPackage` for more details.
 
-For comparison, let's plot the original pathfinder graph; note that the plot on the right makes it easier to this to the previous plot.
+For comparison, let's plot the original pathfinder graph; note that the plot on the right makes it easier to compare this to the previous plot.
 ```{r, fig.width = 6, fig.height = 6}
 par(mfrow = c(1,2), oma = rep(0,4))
 plotDAG(pathfinder$dag)
@@ -122,7 +119,7 @@ plot(solution,
 )
 ```
 
-The output of `estimate.dag` is a list of _graphs_, i.e. without weights. In order to do estimate the weights in these graphs, use `estimate.parameters`:
+The output of `estimate.dag` is a list of _graphs_, i.e. adjacency lists without edge weights. In order to estimate the edge weights, we use `estimate.parameters`:
 ```{r}
 dags.fit <- estimate.parameters(dags, data = dat)
 ```
@@ -227,7 +224,7 @@ $$
 \Sigma = (I-B)^{-T}\Omega(I-B)^{-1}.
 $$
 
-Assuming unit influences (i.e. $\beta_{ij}=1$ if $\beta_{ij}\ne 0$) and unit variances (i.e. $\omega_j^2=1$ for all $j$), we can then compute $\Sigma$ by using the identity $\Sigma = (I-B)^{-T}\Omega(I-B)^{-1}$:
+Assuming unit influences (i.e. $\beta_{ij}=1$ if $\beta_{ij}\ne 0$) and unit variances (i.e. $\omega_j^2=1$ for all $j$), we can then compute $\Sigma$ by using the above equation:
 
 ```{r}
 id <- diag(rep(1, num.nodes(pathfinder$dag)))   # 109x109 identity matrix
