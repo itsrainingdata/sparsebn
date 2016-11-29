@@ -1,28 +1,14 @@
 ## Test environments
-* local OS X install, R 3.3.1
-* ubuntu 12.04 (travis-ci), R 3.3.1
+* local OS X install, R 3.3.2
+* ubuntu 12.04.5 (travis-ci), R 3.3.2 (oldrel, devel, and release)
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs.
+There were no ERRORs, WARNINGs, or NOTEs.
 
-There was 1 NOTE:
+## CRAN notes
 
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Bryon Aragam <sparsebn@gmail.com>’
-
-New submission
-
-This is the first version of this package that has been submitted to CRAN.
-
-## Re-submission notes
-- I get
-
-Reading CITATION file fails with
-  $ operator is invalid for atomic vectors
-when package is not installed.
-
-Fixed by replacing packageDecription with meta as described in Section 1.9 of R-exts.
+The current warnings listed for v0.0.1 at https://cran.rstudio.com/web/checks/check_results_sparsebn.html are a result of recent updates to the dependencies for this submission. The current submission remedies all of these issues.
 
 ## Dependencies
 
@@ -30,4 +16,4 @@ CHECK has been run on all dependencies and passed.
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
+There are no reverse dependencies.

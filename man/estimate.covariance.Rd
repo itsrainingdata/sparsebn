@@ -32,7 +32,7 @@ see Sections 2.1 and 2.2 (equation (6)) of Aragam and Zhou (2015) for more detai
 
 \dontrun{
 data(cytometryContinuous)
-dat <- sparsebnData(cytometryContinuous$data, type = "d", ivn = cytometryContinuous$ivn)
+dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 estimate.covariance(dat) # estimate covariance
 estimate.precision(dat)  # estimate precision
 }

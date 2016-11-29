@@ -6,7 +6,8 @@
 \usage{
 estimate.dag(data, lambdas = NULL, lambdas.length = 20, error.tol = 1e-04,
   max.iters = NULL, edge.threshold = NULL, concavity = 2,
-  weight.scale = 1, convLb = 0.01, upperbound = 100, verbose = FALSE)
+  weight.scale = 1, convLb = 0.01, upperbound = 100, adaptive = FALSE,
+  verbose = FALSE)
 }
 \arguments{
 \item{data}{Data as \code{\link[sparsebnUtils]{sparsebnData}}.}
@@ -36,6 +37,8 @@ will be used and this value is otherwise ignored.}
 
 \item{upperbound}{(CD only) A large positive value used to truncate the adaptive weights. A -1 value indicates that there is no truncation.}
 
+\item{adaptive}{(CD only) \code{TRUE / FALSE}, if \code{TRUE} the adaptive algorithm will be run.}
+
 \item{verbose}{\code{TRUE / FALSE} whether or not to print out progress and summary reports.}
 }
 \value{
@@ -54,7 +57,7 @@ and \code{\link[discretecdAlgorithm]{cd.run}}.
 \dontrun{
 # Estimate a DAG from the cytometry data
 data(cytometryContinuous)
-dat <- sparsebnData(cytometryContinuous$data, type = "d", ivn = cytometryContinuous$ivn)
+dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 estimate.dag(dat)
 }
 

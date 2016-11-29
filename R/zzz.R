@@ -7,10 +7,12 @@
 #
 
 #' @import sparsebnUtils ccdrAlgorithm discretecdAlgorithm
+#' @importFrom grDevices gray rgb
+#' @importFrom graphics plot
 
 .onAttach <- function(libname, pkgname){
     msg <- paste0("\n",
-                  "sparsebn v0.0.1, Copyright (c) 2016\n",
+                  "sparsebn v0.0.2, Copyright (c) 2016\n",
                   "\tBryon Aragam, University of California, Los Angeles\n",
                   "\tJiaying Gu, University of California, Los Angeles\n",
                   "\tDacheng Zhang, University of California, Los Angeles\n",

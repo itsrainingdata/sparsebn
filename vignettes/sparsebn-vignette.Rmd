@@ -1,5 +1,5 @@
 ---
-title: "Introduction to sparsebn"
+title: "Introduction to the sparsebn package"
 author: "Bryon Aragam"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,18 +9,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-`sparsebn` is an `R` package for learning sparse Bayesian networks and other graphical models from high-dimensional data via sparse regularization. Designed to handle:
+`sparsebn` is an `R` package for learning sparse Bayesian networks and other graphical models from high-dimensional data via sparse regularization. It is designed to handle:
 
 - Experimental data with interventions 
 - Mixed observational / experimental data
 - High-dimensional data with _p >> n_
 - Datasets with thousands of variables (tested up to _p_=8000)
 - Continuous and discrete data
-
-The workhorse behind [`sparsebn`](http://www.github.com/itsrainingdata/sparsebn/) is the [`sparsebnUtils`](http://www.github.com/itsrainingdata/sparsebnUtils/)
-package, which provides various S3 classes and methods for representing and manipulating graphs. The basic algorithms are implemented in [`ccdrAlgorithm`](http://www.github.com/itsrainingdata/ccdrAlgorithm/) and [`discretecdAlgorithm`](http://www.github.com/gujyjean/discretecdAlgorithm/).
-
-## Overview
 
 The main methods for learning graphical models are:
 
@@ -30,9 +25,113 @@ The main methods for learning graphical models are:
 
 Currently, estimation of precision and covariances matrices is limited to Gaussian data.
 
+## tl;dr: Structure learning in five lines of code
+
+The following example illustrates how to use `sparsebn` to learn a Bayesian network in just a few lines of code. An explanation of this code can be found in the next section.
+
+```{r message=FALSE, warning=FALSE}
+library(sparsebn)
+data(pathfinder)
+data <- sparsebnData(pathfinder[["data"]], type = "continuous")
+dags <- estimate.dag(data)
+dags
+```
+
+## Example: Learning the pathfinder network
+
+In this section, we will reconstruct the pathfinder network from the [Bayesian network repository](http://www.bnlearn.com/bnrepository/#pathfinder). The pathfinder network has 109 nodes and 195 edges.
+
+In order to use the methods in the sparsebn package, we need to indicate what kind of data we are working with by wrapping the data into a `sparsebnData` object. First we load the data and then create a `sparsebnData` object:
+
+```{r}
+data(pathfinder)
+dat <- sparsebnData(pathfinder$data, type = "continuous", ivn = NULL)
+```
+
+The `sparsebnData` object keeps track of what kind of data we are working with: Is it discrete or continuous, does it contain any interventions, and if it is discrete, what are the factor levels in the data? The argument `type = "continuous"` specifies that this data is continuous, and `ivn = NULL` indicate that there are no interventions. 
+
+Now we can run the algorithm:
+
+```{r message=FALSE, warning=FALSE}
+dags <- estimate.dag(data = dat)
+dags
+```
+
+Instead of automatically generating a grid of regularization parameters, we can also generate one manually (see `?generate.lambdas`). 
+
+```{r message=FALSE, warning=FALSE}
+nn <- num.samples(dat) # number of samples in the dataset / equivalent to nrow(dat$data)
+lambdas <- generate.lambdas(sqrt(nn), 0.05, lambdas.length = 50, scale = "linear")
+dags <- estimate.dag(data = dat, 
+                     lambdas = lambdas,
+                     verbose = FALSE)
+dags
+```
+
+Note that the output is a _solution path_ (stored internally as a `sparsebnPath` object), instead of a single estimate. In order to select a particular DAG, we need to do model selection. For example, we can visualize the solution with 195 edges:
+```{r, fig.width = 6, fig.height = 6}
+solution <- select(dags, edges = 195)
+par(mfrow = c(1,2), oma = rep(0,4))
+plotDAG(solution)
+plot(solution,
+     layout = igraph::layout_(to_igraph(solution$edges), igraph::in_circle()),
+     vertex.label = NA,
+     vertex.size = 5,
+     vertex.label.color = gray(0),
+     vertex.color = gray(0.9),
+     edge.color = gray(0),
+     edge.arrow.size = 0.45
+)
+```
+
+On the left, we use the `plotDAG` method, which uses some sensible defaults for plotting large graphs. On the right, we use the `plot` method (by default, imported from the `igraph` package) in order to use an organized circular layout and change some graphical parameters. The `sparsebn` package allows the user to use the `igraph`, `network`, or `graph` packages for visualization via the `plot` method. See `?setPlotPackage` for more details.
+
+For comparison, let's plot the original pathfinder graph; note that the plot on the right makes it easier to compare this to the previous plot.
+```{r, fig.width = 6, fig.height = 6}
+par(mfrow = c(1,2), oma = rep(0,4))
+plotDAG(pathfinder$dag)
+plot(pathfinder$dag,
+     layout = igraph::layout_(to_igraph(pathfinder$dag), igraph::in_circle()),
+     vertex.label = NA,
+     vertex.size = 5,
+     vertex.label.color = gray(0),
+     vertex.color = gray(0.9),
+     edge.color = gray(0),
+     edge.arrow.size = 0.45
+)
+```
+
+Alternatively, we can automatically select a good solution using `select.parameter`:
+```{r, fig.width = 6, fig.height = 6}
+select.idx <- select.parameter(dags, dat)
+solution <- select(dags, index = select.idx) # same as dags[[select.idx]]
+
+par(mfrow = c(1,2), oma = rep(0,4))
+plotDAG(solution)
+plot(solution,
+     layout = igraph::layout_(to_igraph(solution$edges), igraph::in_circle()),
+     vertex.label = NA,
+     vertex.size = 5,
+     vertex.label.color = gray(0),
+     vertex.color = gray(0.9),
+     edge.color = gray(0),
+     edge.arrow.size = 0.45
+)
+```
+
+The output of `estimate.dag` is a list of _graphs_, i.e. adjacency lists without edge weights. In order to estimate the edge weights, we use `estimate.parameters`:
+```{r}
+dags.fit <- estimate.parameters(dags, data = dat)
+```
+
+The output is a list of weights, one for each value of $\lambda$. The weights are given in terms of $(B,\Omega)$, corresponding to the list `list(coefs, vars)`. For example, we can see how the weight of the first node on the second changes as we decrease $\lambda$:
+```{r}
+unlist(lapply(dags.fit, function(x) x$coefs[1,2]))
+```
+
 ## Example: Learning a Markov Chain
 
-Suppose that the data is generated by a simple Markov chain:
+In this example, we illustrate how to learn a simple Markov chain on three nodes. We will also discuss how to use `sparsebn` to do covariance estimation. Suppose that the data is generated by the following graphical model:
 
 $$X_1\to X_2\to X_3.$$
 
@@ -64,33 +163,26 @@ covariance.matrix <- rbind(c(3,2,1),
                            c(1,1,1))
 ```
 
-Then we can generate some data using `mvtnorm::rmvnorm`:
+Then we can generate some data using the `mvtnorm` package:
 ```{r}
 gaussian.data <- mvtnorm::rmvnorm(n = 100, mean = mean.vector, sigma = covariance.matrix)
 colnames(gaussian.data) <- c("X1", "X2", "X3")
 ```
 
-In order to use the methods in the sparsebn package, we need to indicate what kind of data we are working with by wrapping the data into a `sparsebnData` object:
-```{r message=FALSE, warning=FALSE}
-library("sparsebn")
-dat <- sparsebnData(gaussian.data, type = "continuous")
-```
-
 Now we can use this data to estimate $B$:
 ```{r}
-dags.out <- estimate.dag(data = dat, 
+dat <- sparsebnData(gaussian.data, type = "continuous")
+dags <- estimate.dag(data = dat, 
                          lambdas.length = 20, 
                          edge.threshold = 10, 
                          verbose = FALSE)
-dags.out
+dags
 ```
-
-Note that the output is a _solution path_ (stored internally as a `sparsebnPath` object), instead of a single estimate. In order to select a particular DAG, we need to do model selection (not implemented yet).
 
 As expected, the third estimate in our solution path gives the correct estimate:
 ```{r}
-dags.out[[3]]
-get.adjacency.matrix(dags.out[[3]])
+dags[[3]]
+get.adjacency.matrix(dags[[3]])
 ```
 
 We can also use this data to directly estimate the covariance matrix $\Sigma$:
@@ -116,84 +208,11 @@ cov.out <- estimate.covariance(data = dat)
 cov.out[[3]]
 ```
 
-## Example: Bayesian network repository
-
-For a less trivial example, we will try to reconstruct the pathfinder network from the [Bayesian network repository](http://www.bnlearn.com/bnrepository/#pathfinder). The pathfinder network has 109 nodes and 195 edges.
-
-First, load the data:
-
-```{r}
-data(pathfinder)
-dat <- sparsebnData(pathfinder$data, type = "c", ivn = NULL)
-```
-
-Note that we create a `sparsebnData` object with no interventions by setting `ivn = NULL`. This time, instead of automatically generating a grid of regularization parameters, we generate one manually (see `?generate.lambdas`). Then we run the algorithm:
-
-```{r message=FALSE, warning=FALSE}
-nn <- num.samples(dat) # number of samples in the dataset / equivalent to nrow(dat$data)
-lambdas <- generate.lambdas(sqrt(nn), 0.05, lambdas.length = 50, scale = "linear")
-dags.out <- estimate.dag(data = dat, 
-                         lambdas = lambdas,
-                         edge.threshold = 500, 
-                         verbose = FALSE)
-dags.out
-```
-
-Let's visualize the solution with 195 edges. For this, we use the `igraph` package:
-```{r}
-solution <- get.solution(dags.out, edges = 195)
-plot(solution,
-     layout = igraph::layout.circle(to_igraph(solution$edges)),
-     vertex.label = NA,
-     vertex.size = 5,
-     vertex.color = gray(0.75),
-     edge.color = gray(0),
-     edge.width = 1,
-     edge.arrow.size = .25)
-```
-
-For comparison, let's plot the original pathfinder graph. 
-```{r}
-plot(pathfinder$dag,
-     layout = igraph::layout.circle(to_igraph(pathfinder$dag)),
-     vertex.label = NA,
-     vertex.size = 5,
-     vertex.color = gray(0.75),
-     edge.color = gray(0),
-     edge.width = 1,
-     edge.arrow.size = .25)
-```
-
-We can also use the parameter selection technique described in \[[4](#references)\] to automatically select a good index (see `?select.parameter` for more details):
-```{r}
-select.idx <- select.parameter(dags.out, dat)
-solution <- get.solution(dags.out, index = select.idx)
-plot(solution,
-     layout = igraph::layout.circle(to_igraph(solution$edges)),
-     vertex.label = NA,
-     vertex.size = 5,
-     vertex.color = gray(0.75),
-     edge.color = gray(0),
-     edge.width = 1,
-     edge.arrow.size = .25)
-```
-
-
-Note that the output of `estimate.dag` is a list of _graphs_, i.e. without weights. In order to do inference and estimate the weights in these graphs, use `estimate.parameters`:
-```{r}
-out.fit <- estimate.parameters(dags.out, data = dat)
-```
-
-The output is a list of weights, one for each value of $\lambda$. The weights are given in terms of $(B,\Omega)$, corresponding to the list `list(coefs, vars)`. For example, we can see how the weight of the first node on the second changes as we decrease $\lambda$:
-```{r}
-unlist(lapply(out.fit, function(x) x$coefs[1,2]))
-```
-
 ## Appendix: Simulating data from a linear Gaussian SEM
 
-The `pathfinder` dataset has been simulated from a linear Gaussian SEM. In this section, we illustrate how to do this from scratch.
+Both datasets above have been simulated from a linear Gaussian SEM. In this section, we illustrate how to do this from scratch.
 
-We first need a DAG; for this example we will use the pathfinder network from the previous section. First, load this DAG:
+We first need a DAG; for this example we will use the pathfinder network. First, load this DAG:
 
 ```{r}
 data(pathfinder)
@@ -205,7 +224,7 @@ $$
 \Sigma = (I-B)^{-T}\Omega(I-B)^{-1}.
 $$
 
-Assuming unit influences (i.e. $\beta_{ij}=1$ if $\beta_{ij}\ne 0$) and unit variances (i.e. $\omega_j^2=1$ for all $j$), we can then compute $\Sigma$ directly:
+Assuming unit influences (i.e. $\beta_{ij}=1$ if $\beta_{ij}\ne 0$) and unit variances (i.e. $\omega_j^2=1$ for all $j$), we can then compute $\Sigma$ by using the above equation:
 
 ```{r}
 id <- diag(rep(1, num.nodes(pathfinder$dag)))   # 109x109 identity matrix
@@ -217,23 +236,13 @@ Finally, we can use the `mvtnorm` package to generate random multivariate Gaussi
 
 ```{r}
 set.seed(123)
-nn <- 1000
-gaussian.data <- mvtnorm::rmvnorm(nn, sigma = Sigma)
+nsamples <- 1000
+gaussian.data <- mvtnorm::rmvnorm(nsamples, sigma = Sigma)
 ```
 
 Instead of setting $\beta_{ij}=1$, we can also use random edge weights:
 ```{r}
 B[B!=0] <- runif(n = num.edges(pathfinder$dag), min = 0.5, max = 2)
 Sigma <- solve(t(id - B)) %*% Omega %*% solve(id - B)
-gaussian.data <- mvtnorm::rmvnorm(nn, sigma = Sigma)
+gaussian.data <- mvtnorm::rmvnorm(nsamples, sigma = Sigma)
 ```
-
-## References
-
-\[1\] Aragam, B. and Zhou, Q. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
-
-\[2\] Fu, F., Gu, J., and Zhou, Q. (2014). [Adaptive penalized estimation of directed acyclic graphs from categorical data.](http://arxiv.org/abs/1403.2310) arXiv: 1403.2310. 
-
-\[3\] Aragam, B., Amini, A. A., and Zhou, Q. (2015). [Learning directed acyclic graphs with penalized neighbourhood regression.](http://arxiv.org/abs/1511.08963) arXiv: 1511.08963.
-
-\[4\] Fu, F. and Zhou, Q. (2013). [Learning sparse causal Gaussian networks with experimental intervention: Regularization and coordinate descent.](http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.754359) Journal of the American Statistical Association, 108: 288-300.

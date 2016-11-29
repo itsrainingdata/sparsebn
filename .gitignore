@@ -8,3 +8,5 @@ src/*.dll
 #man/*.Rd
 *.tar.gz
 inst/doc
+*.pdf
+
