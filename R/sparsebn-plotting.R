@@ -30,7 +30,7 @@
 #' @param ... Additional arguments to \code{\link{plot}}.
 #'
 #' @export
-plotDAG <- function(x){
+plotDAG <- function(x, ...){
     ### Must use igraph for the default method
     current_plot_pkg <- getPlotPackage()
     if(current_plot_pkg != "igraph"){
