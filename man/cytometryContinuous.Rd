@@ -27,4 +27,3 @@ dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinu
 
 }
 \keyword{datasets}
-

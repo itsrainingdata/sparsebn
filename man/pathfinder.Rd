@@ -42,4 +42,3 @@ pathfinder.data <- rmvnorm(n = 1000, sigma = as.matrix(covMat))
 
 }
 \keyword{datasets}
-

@@ -2,6 +2,7 @@
 % Please edit documentation in R/sparsebn-main.R
 \name{estimate.covariance}
 \alias{estimate.covariance}
+\alias{estimate.covariance}
 \alias{estimate.precision}
 \title{Covariance estimation}
 \usage{
@@ -38,4 +39,3 @@ estimate.precision(dat)  # estimate precision
 }
 
 }
-

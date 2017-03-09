@@ -4,7 +4,7 @@
 \alias{plotDAG}
 \title{Plot a DAG}
 \usage{
-plotDAG(x)
+plotDAG(x, ...)
 }
 \arguments{
 \item{x}{An \code{\link{edgeList}}, \code{\link{sparsebnFit}}, or \code{\link{sparsebnPath}} object.}
@@ -21,4 +21,3 @@ This method is not intended for customization. For more control over the output,
 \code{\link{setGraphPackage}} for even more control. These methods grants the user the full
 feature set of the selected package.
 }
-
