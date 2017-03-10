@@ -54,11 +54,9 @@ and \code{\link[discretecdAlgorithm]{cd.run}}.
 }
 \examples{
 
-\dontrun{
 # Estimate a DAG from the cytometry data
 data(cytometryContinuous)
 dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 estimate.dag(dat)
-}
 
 }
