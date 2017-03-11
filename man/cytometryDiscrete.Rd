@@ -27,4 +27,3 @@ dat <- sparsebnData(cytometryDiscrete$data, type = "d", ivn = cytometryDiscrete$
 
 }
 \keyword{datasets}
-

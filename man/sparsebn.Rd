@@ -23,4 +23,3 @@ The workhorse behind \code{\link{sparsebn}} is the \code{\link[sparsebnUtils]{sp
 package, which provides various S3 classes and methods for representing and manipulating graphs.
 For more details on this package and the functionality it provides, see \code{?sparsebnUtils}.
 }
-

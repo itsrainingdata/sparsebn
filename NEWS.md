@@ -1,3 +1,9 @@
+# sparsebn 0.0.3
+
+## Bug fixes
+
+* Minor bug fixes
+
 # sparsebn 0.0.2
 
 ## Features

@@ -47,12 +47,10 @@
 #'
 #' @examples
 #'
-#' \dontrun{
 #' # Estimate a DAG from the cytometry data
 #' data(cytometryContinuous)
 #' dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 #' estimate.dag(dat)
-#' }
 #'
 #' @export
 estimate.dag <- function(data,
@@ -133,12 +131,10 @@ estimate.dag <- function(data,
 #'
 #' @examples
 #'
-#' \dontrun{
 #' data(cytometryContinuous)
 #' dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 #' estimate.covariance(dat) # estimate covariance
 #' estimate.precision(dat)  # estimate precision
-#' }
 #'
 #' @name estimate.covariance
 #' @rdname estimate.covariance
