@@ -3,16 +3,20 @@ citHeader("To cite sparsebn in publications use:")
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
 
-citEntry(entry = "Manual",
-  title        = "sparsebn: Learning Sparse Bayesian Networks from High-Dimensional Data",
-  author       = personList(as.person("Bryon Aragam"), as.person("Jiaying Gu"), as.person("Dacheng Zhang"), as.person("Fei Fu"), as.person("Qing Zhou")),
-  year         = year,
-  note         = vers,
-  url          = "https://github.com/itsrainingdata/sparsebn",
-  textVersion  = paste0("Bryon Aragam, Jiaying Gu, Dacheng Zhang, Fei Fu, and Qing Zhou (", year, "). ",
-        "sparsebn: Learning Sparse Bayesian Networks from High-Dimensional Data. ",
-        vers, ".\n",
-        "https://github.com/itsrainingdata/sparsebn")
+citEntry(entry = "Article",
+  title        = "Learning Large-Scale Bayesian Networks with the sparsebn Package",
+  author       = personList(as.person("Bryon Aragam"),
+                   as.person("Qing Zhou")),
+  year         = "2017",
+  journal      = "Submitted",
+  volume       = "arXiv:1703.04025",
+  url          = "https://arxiv.org/abs/1703.04025",
+
+  textVersion  =
+  paste("Bryon Aragam, Jiaying Gu, Qing Zhou (2017).",
+        "Learning Large-Scale Bayesian Networks with the sparsebn Package.",
+        "arXiv preprint arXiv:1703.04025",
+        "URL https://arxiv.org/abs/1703.04025.")
 )
 
 citFooter("A lot of effort has gone into building and maintaing the sparsebn package. Please cite it in all papers where it is used.")
