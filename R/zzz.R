@@ -12,7 +12,7 @@
 
 .onAttach <- function(libname, pkgname){
     msg <- paste0("\n",
-                  "sparsebn v0.0.4, Copyright (c) 2016-2017\n",
+                  "sparsebn v0.0.5, Copyright (c) 2016-2017\n",
                   "\tBryon Aragam, University of California, Los Angeles\n",
                   "\tJiaying Gu, University of California, Los Angeles\n",
                   "\tDacheng Zhang, University of California, Los Angeles\n",
