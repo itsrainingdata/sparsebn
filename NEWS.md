@@ -1,3 +1,9 @@
+# sparsebn 0.0.4
+
+## Notes
+
+* Updated CITATION
+
 # sparsebn 0.0.3
 
 ## Bug fixes
@@ -8,7 +14,7 @@
 
 ## Features
 * Added a `NEWS.md` file to track changes to the package
-* Added plotDAG to provide convenient default for plotting large graphs
+* Added `plotDAG` to provide convenient default for plotting large graphs
 * `estimate.dag` now takes an optional logical argument `adaptive`: If `TRUE`, then an adaptive version of the CD algorithm will be run for discrete data. This argument is ignored for continuous data.
 * Vignette updated and re-written
 
