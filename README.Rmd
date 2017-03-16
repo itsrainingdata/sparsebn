@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 [![](http://www.r-pkg.org/badges/version/sparsebn)](http://www.r-pkg.org/pkg/sparsebn)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/sparsebn)](http://www.r-pkg.org/pkg/sparsebn)
 
-Introducing `sparsebn` - A new R package for learning sparse Bayesian networks and other graphical models from high-dimensional data via sparse regularization. Designed from the ground up to handle:
+Introducing `sparsebn`: A new R package for learning sparse Bayesian networks and other graphical models from high-dimensional data via sparse regularization. Designed from the ground up to handle:
 
 - Experimental data with interventions 
 - Mixed observational / experimental data
@@ -59,11 +59,11 @@ You can install:
 
 ## References
 
-\[1\] Aragam, B., Gu, J., and Zhou, Q. (2017). [Learning Large-Scale Bayesian Networks with the sparsebn Package.](https://arxiv.org/abs/1703.04025) arXiv: 1703.04025. 
+[1] Aragam, B., Gu, J., and Zhou, Q. (2017). [Learning Large-Scale Bayesian Networks with the sparsebn Package.](https://arxiv.org/abs/1703.04025) arXiv: 1703.04025. 
 
-\[2\] Aragam, B. and Zhou, Q. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
+[2] Aragam, B. and Zhou, Q. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) _The Journal of Machine Learning Research_. 16(Nov):2273−2328. 
 
-\[3\] Fu, F., Gu, J., and Zhou, Q. (2014). [Adaptive penalized estimation of directed acyclic graphs from categorical data.](http://arxiv.org/abs/1403.2310) arXiv: 1403.2310. 
-\[4\] Aragam, B., Amini, A. A., and Zhou, Q. (2015). [Learning directed acyclic graphs with penalized neighbourhood regression.](http://arxiv.org/abs/1511.08963) arXiv: 1511.08963.
+[3] Fu, F., Gu, J., and Zhou, Q. (2014). [Adaptive penalized estimation of directed acyclic graphs from categorical data.](http://arxiv.org/abs/1403.2310) arXiv: 1403.2310. 
+[4] Aragam, B., Amini, A. A., and Zhou, Q. (2015). [Learning directed acyclic graphs with penalized neighbourhood regression.](http://arxiv.org/abs/1511.08963) arXiv: 1511.08963.
 
-\[5\] Fu, F. and Zhou, Q. (2013). [Learning sparse causal Gaussian networks with experimental intervention: Regularization and coordinate descent.](http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.754359) Journal of the American Statistical Association, 108: 288-300.
+[5] Fu, F. and Zhou, Q. (2013). [Learning sparse causal Gaussian networks with experimental intervention: Regularization and coordinate descent.](http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2012.754359) Journal of the American Statistical Association, 108: 288-300.
