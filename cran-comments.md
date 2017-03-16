@@ -5,7 +5,16 @@
 * r-hub (oldrel, devel, and release)
 
 ## R CMD check results
-There were no ERRORs, WARNINGs, or NOTEs.
+There were no ERRORs or WARNINGs. There was one NOTE:
+
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Bryon Aragam <sparsebn@gmail.com>’
+
+Days since last update: 4
+
+- This is a very minor release to update the package metadata to include a reference
+to a new preprint discussing this package. No DOI is available yet since it is currently
+under review.
 
 ## Dependencies
 
