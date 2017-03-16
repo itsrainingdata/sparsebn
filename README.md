@@ -46,7 +46,7 @@ You can install:
 References
 ----------
 
-\[1\] Aragam, B., Gu, J., and Zhou, Q. (2017). [Learning Large-Scale Bayesian Networks with the sparsebn Package.](https://arxiv.org/abs/1703.04025) arXiv: 1703.04025.
+\[1\] Aragam, B., Gu, J., and Zhou, Q. (2017). [Learning large-scale Bayesian networks with the sparsebn package.](https://arxiv.org/abs/1703.04025) arXiv: 1703.04025.
 
 \[2\] Aragam, B. and Zhou, Q. (2015). [Concave penalized estimation of sparse Gaussian Bayesian networks.](http://jmlr.org/papers/v16/aragam15a.html) *The Journal of Machine Learning Research*. 16(Nov):2273−2328.
 
