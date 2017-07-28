@@ -1,10 +1,13 @@
 #' The pathfinder network
 #'
-#' Simulated data and network for the pathfinder network from the \href{http://www.bnlearn.com/bnrepository/#pathfinder}{Bayesian network repository}.
-#' Pathfinder is an expert system developed by Heckerman et. al (1992)
+#' Simulated data and network for the pathfinder network from the
+#' \href{http://www.bnlearn.com/bnrepository/#pathfinder}{Bayesian network repository}.
+#' Pathfinder is an expert system developed by
+#' \href{http://heckerman.com/david/HN92cbr.pdf}{Heckerman et. al (1992)} [1]
 #' to assist with the diagnosis of lymph-node diseases.
 #'
-#' The data is simulated from a Gaussian SEM assuming unit edge weights and
+#' This is a benchmark network used to test algorithms for learning Bayesian
+#' networks. The data is simulated from a Gaussian SEM assuming unit edge weights and
 #' unit variances for all nodes.
 #'
 #' @format A \code{\link{list}} with four components:
@@ -21,6 +24,9 @@
 #'
 #' @usage
 #' data(pathfinder)
+#'
+#' @references
+#' [1] Heckerman, David E., and Bharat N. Nathwani. "\href{http://heckerman.com/david/HN92cbr.pdf}{An evaluation of the diagnostic accuracy of Pathfinder}." Computers and Biomedical Research 25.1 (1992): 56-74.
 #'
 #' @examples
 #' \dontrun{
@@ -42,8 +48,14 @@
 #' The discrete cytometry network
 #'
 #' Data and network for analyzing the flow cytometry experiment
-#' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
-#' The data is a cleaned and discretized version of the raw data (see \code{\link{cytometryContinuous}}) from these experiments.
+#' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)} [1].
+#' The data is a cleaned and discretized version of the raw data (see
+#' \code{\link{cytometryContinuous}} for details) from these experiments.
+#'
+#' After cleaning and pre-processing, the raw continuous measurements have been
+#' binned into one of three levels: low = 0, medium = 1, or high = 2. Due to the
+#' pre-processing, the discrete data contains fewer observations (n = 5400)
+#' compared to the raw, continuous data.
 #'
 #' @format A \code{\link{list}} with three components:
 #'
@@ -57,6 +69,9 @@
 #' @usage
 #' data(cytometryDiscrete)
 #'
+#' @references
+#' [1] Sachs, Karen, et al. "\href{http://science.sciencemag.org/content/308/5721/523.long}{Causal protein-signaling networks derived from multiparameter single-cell data}." Science 308.5721 (2005): 523-529.
+#'
 #' @examples
 #' # Create a valid sparsebnData object from the cytometry data
 #' data(cytometryDiscrete)
@@ -67,8 +82,15 @@
 #' The continuous cytometry network
 #'
 #' Data and network for analyzing the flow cytometry experiment
-#' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
+#' from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)} [1].
 #' This dataset contains the raw measurements from these experiments.
+#'
+#' The dataset consists of n = 7466 observations of p = 11 continuous
+#' variables corresponding to different proteins and phospholipids in human
+#' immune system cells, and each observation indicates the measured level of
+#' each biomolecule in a single cell under different experimental interventions.
+#' Based on this data, a consensus network was reconstructed and validated, which
+#' is included as well.
 #'
 #' @format A \code{\link{list}} with three components:
 #'
@@ -81,6 +103,9 @@
 #'
 #' @usage
 #' data(cytometryContinuous)
+#'
+#' @references
+#' [1] Sachs, Karen, et al. "\href{http://science.sciencemag.org/content/308/5721/523.long}{Causal protein-signaling networks derived from multiparameter single-cell data}." Science 308.5721 (2005): 523-529.
 #'
 #' @examples
 #' # Create a valid sparsebnData object from the cytometry data

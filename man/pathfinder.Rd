@@ -17,12 +17,15 @@ is purely observational, this is just \code{NULL}. Compatible with the input to 
 data(pathfinder)
 }
 \description{
-Simulated data and network for the pathfinder network from the \href{http://www.bnlearn.com/bnrepository/#pathfinder}{Bayesian network repository}.
-Pathfinder is an expert system developed by Heckerman et. al (1992)
+Simulated data and network for the pathfinder network from the
+\href{http://www.bnlearn.com/bnrepository/#pathfinder}{Bayesian network repository}.
+Pathfinder is an expert system developed by
+\href{http://heckerman.com/david/HN92cbr.pdf}{Heckerman et. al (1992)} [1]
 to assist with the diagnosis of lymph-node diseases.
 }
 \details{
-The data is simulated from a Gaussian SEM assuming unit edge weights and
+This is a benchmark network used to test algorithms for learning Bayesian
+networks. The data is simulated from a Gaussian SEM assuming unit edge weights and
 unit variances for all nodes.
 }
 \examples{
@@ -40,5 +43,8 @@ covMat <- t(solve(id - coefs)) \%*\% vars \%*\% solve(id - coefs)
 pathfinder.data <- rmvnorm(n = 1000, sigma = as.matrix(covMat))
 }
 
+}
+\references{
+[1] Heckerman, David E., and Bharat N. Nathwani. "\href{http://heckerman.com/david/HN92cbr.pdf}{An evaluation of the diagnostic accuracy of Pathfinder}." Computers and Biomedical Research 25.1 (1992): 56-74.
 }
 \keyword{datasets}
