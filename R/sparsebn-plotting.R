@@ -72,6 +72,7 @@ plotDAG.sparsebnPath <- function(x, ...){
     #
 
     plot(x,
+         labels = TRUE,
          vertex.size = 4,
          vertex.label = NA,
          vertex.label.color = gray(0),
