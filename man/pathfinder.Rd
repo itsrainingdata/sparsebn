@@ -29,19 +29,18 @@ networks. The data is simulated from a Gaussian SEM assuming unit edge weights a
 unit variances for all nodes.
 }
 \examples{
-\dontrun{
-# Create a valid sparsebnData object from the simulated pathfinder data
+
+### Create a valid sparsebnData object from the simulated pathfinder data
 data(pathfinder)
 dat <- sparsebnData(pathfinder$data, type = "c")
 
-# If desired, change the edge weights to be randomly generated
-coefs <- get.adjacency.matrix(pathfinder$dag)
-coefs[coefs != 0] <- runif(n = num.edges(pathfinderDAG), min = 0.5, max = 2)
-vars <- Matrix::Diagonal(n = num.nodes(pathfinderDAG), x = rep(1, num.nodes(pathfinderDAG)))
-id <- vars
-covMat <- t(solve(id - coefs)) \%*\% vars \%*\% solve(id - coefs)
-pathfinder.data <- rmvnorm(n = 1000, sigma = as.matrix(covMat))
-}
+### Code to reproduce this dataset by randomly generating edge weights
+coefs <- runif(n = num.edges(pathfinder$dag), min = 0.5, max = 2) # coefficients
+vars <- rep(1, num.nodes(pathfinder$dag))                         # variances
+params <- c(coefs, vars)                                          # parameter vector
+pathfinder.data <- generate_mvn_data(graph = pathfinder$dag,
+                                     params = params,
+                                     n = 1000)
 
 }
 \references{
