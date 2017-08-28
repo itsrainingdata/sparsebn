@@ -29,6 +29,14 @@
 #'                used based on a decreasing log-scale  (see also \link[sparsebnUtils]{generate.lambdas}).
 #' @param lambdas.length Integer number of values to include in the solution path. If \code{lambdas}
 #'                       has also been specified, this value will be ignored.
+#' @param whitelist A two-column matrix of edges that are guaranteed to be in each
+#'                  estimate (a "white list"). Each row in this matrix corresponds
+#'                  to an edge that is to be whitelisted. These edges can be
+#'                  specified by node name (as a \code{character} matrix), or by
+#'                  index (as a \code{numeric} matrix).
+#' @param blacklist A two-column matrix of edges that are guaranteed to be absent
+#'                  from each estimate (a "black list"). See argument
+#'                  "\code{whitelist}" above for more details.
 #' @param error.tol Error tolerance for the algorithm, used to test for convergence.
 #' @param max.iters Maximum number of iterations for each internal sweep.
 #' @param edge.threshold Threshold parameter used to terminate the algorithm whenever the number of edges in the
@@ -56,6 +64,8 @@
 estimate.dag <- function(data,
                          lambdas = NULL,
                          lambdas.length = 20,
+                         whitelist = NULL,
+                         blacklist = NULL,
                          error.tol = 1e-4,
                          max.iters = NULL,
                          edge.threshold = NULL,
@@ -94,6 +104,8 @@ estimate.dag <- function(data,
         ccdrAlgorithm::ccdr.run(data = data,
                                 lambdas = lambdas,
                                 lambdas.length = lambdas.length,
+                                whitelist = whitelist,
+                                blacklist = blacklist,
                                 gamma = concavity,
                                 error.tol = error.tol,
                                 max.iters = max.iters,
@@ -104,6 +116,8 @@ estimate.dag <- function(data,
         discretecdAlgorithm::cd.run(indata = data,
                                     lambdas = lambdas,
                                     lambdas.length = lambdas.length,
+                                    whitelist = whitelist,
+                                    blacklist = blacklist,
                                     error.tol = error.tol,
                                     convLb = convLb,
                                     weight.scale = weight.scale,
