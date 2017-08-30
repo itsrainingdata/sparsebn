@@ -20,7 +20,7 @@ Suggests:
 Remotes:
     itsrainingdata/sparsebnUtils@dev,
     itsrainingdata/ccdrAlgorithm@dev,
-    gujyjean/discretecdAlgorithm
+    gujyjean/discretecdAlgorithm@dev
 URL: https://github.com/itsrainingdata/sparsebn
 BugReports: https://github.com/itsrainingdata/sparsebn/issues
 License: GPL (>= 2)
