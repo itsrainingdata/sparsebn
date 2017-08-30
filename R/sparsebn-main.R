@@ -99,6 +99,15 @@ estimate.dag <- function(data,
     ### Is the data gaussian, binomial, or multinomial? (Other data not supported yet.)
     data_family <- sparsebnUtils::pick_family(data)
 
+    ### If intervention list contains character names, convert to indices
+    if("character" %in% sparsebnUtils::list_classes(data$ivn)){
+        data$ivn <- lapply(data$ivn, function(x){
+            idx <- match(x, names(data$data))
+            if(length(idx) == 0) NULL # return NULL if no match (=> observational)
+            else idx
+        })
+    }
+
     ### Run the main algorithms
     if(data_family == "gaussian"){
         ccdrAlgorithm::ccdr.run(data = data,
