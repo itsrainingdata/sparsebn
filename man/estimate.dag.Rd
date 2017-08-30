@@ -4,10 +4,10 @@
 \alias{estimate.dag}
 \title{Estimate a DAG from data}
 \usage{
-estimate.dag(data, lambdas = NULL, lambdas.length = 20, error.tol = 1e-04,
-  max.iters = NULL, edge.threshold = NULL, concavity = 2,
-  weight.scale = 1, convLb = 0.01, upperbound = 100, adaptive = FALSE,
-  verbose = FALSE)
+estimate.dag(data, lambdas = NULL, lambdas.length = 20, whitelist = NULL,
+  blacklist = NULL, error.tol = 1e-04, max.iters = NULL,
+  edge.threshold = NULL, concavity = 2, weight.scale = 1, convLb = 0.01,
+  upperbound = 100, adaptive = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{data}{Data as \code{\link[sparsebnUtils]{sparsebnData}}.}
@@ -18,6 +18,16 @@ used based on a decreasing log-scale  (see also \link[sparsebnUtils]{generate.la
 
 \item{lambdas.length}{Integer number of values to include in the solution path. If \code{lambdas}
 has also been specified, this value will be ignored.}
+
+\item{whitelist}{A two-column matrix of edges that are guaranteed to be in each
+estimate (a "white list"). Each row in this matrix corresponds
+to an edge that is to be whitelisted. These edges can be
+specified by node name (as a \code{character} matrix), or by
+index (as a \code{numeric} matrix).}
+
+\item{blacklist}{A two-column matrix of edges that are guaranteed to be absent
+from each estimate (a "black list"). See argument
+"\code{whitelist}" above for more details.}
 
 \item{error.tol}{Error tolerance for the algorithm, used to test for convergence.}
 
