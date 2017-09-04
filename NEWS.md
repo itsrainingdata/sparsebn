@@ -1,3 +1,11 @@
+# sparsebn 0.0.5
+
+## Features
+
+* `estimate.dag` now supports white lists and black lists
+* Cytoscape compatibility now available through `openCytoscape`
+* See NEWS files for sparsebnUtils, discretecdAlgorithm, and ccdrAlgorithm for more updates
+
 # sparsebn 0.0.4
 
 ## Notes
