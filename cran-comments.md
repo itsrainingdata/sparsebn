@@ -1,20 +1,23 @@
 ## Test environments
-* local OS X install, R 3.3.3
-* ubuntu 12.04.5 (travis-ci), R 3.3.3 (oldrel, devel, and release)
+* local OS X install, R 3.4.1
+* ubuntu 12.04.5 (travis-ci: oldrel, devel, and release)
 * win-builder (devel and release)
-* r-hub (oldrel, devel, and release)
+* r-hub (devel)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. There was one NOTE:
+There were no ERRORs, WARNINGs, or NOTEs.
 
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Bryon Aragam <sparsebn@gmail.com>’
+## CRAN Package Check Results for Package sparsebn 
 
-Days since last update: 4
+From https://cran.rstudio.com/web/checks/check_results_sparsebn.html
 
-- This is a very minor release to update the package metadata to include a reference
-to a new preprint discussing this package. No DOI is available yet since it is currently
-under review.
+Version: 0.0.4
+Check: package dependencies
+Result: NOTE
+    Package suggested but not available for checking: ‘graph’
+Flavor: r-release-osx-x86_64
+    
+This has been fixed.
 
 ## Dependencies
 
