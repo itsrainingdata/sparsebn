@@ -1,7 +1,7 @@
 Package: sparsebn
 Title: Learning Sparse Bayesian Networks from High-Dimensional Data
 Version: 0.0.5
-Date: 2017-03-15
+Date: 2017-09-11
 Authors@R: c(
     person("Bryon", "Aragam", email = "sparsebn@gmail.com", role = c("aut", "cre")),
     person("Jiaying", "Gu", role = c("aut")),
@@ -14,7 +14,7 @@ Depends:
     R (>= 3.2.3),
     sparsebnUtils (>= 0.0.5),
     ccdrAlgorithm (>= 0.0.4),
-    discretecdAlgorithm (>= 0.0.4)
+    discretecdAlgorithm (>= 0.0.5)
 Suggests:
     knitr,
     rmarkdown,
@@ -22,10 +22,6 @@ Suggests:
     igraph,
     graph,
     testthat
-Remotes:
-    itsrainingdata/sparsebnUtils@dev,
-    itsrainingdata/ccdrAlgorithm@dev,
-    gujyjean/discretecdAlgorithm@dev
 URL: https://github.com/itsrainingdata/sparsebn
 BugReports: https://github.com/itsrainingdata/sparsebn/issues
 License: GPL (>= 2)
