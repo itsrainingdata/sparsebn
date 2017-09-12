@@ -91,6 +91,12 @@ generate_fixed_edgeList <- function(){
 }
 
 generate_fixed_graphNEL <- function(){
+    ### This function requires the 'graph' package to be installed
+    if (!requireNamespace("graph", quietly = TRUE)) {
+        stop("graph package (from BioConductor) required!", call. = FALSE)
+    }
+
+
     V <- helper_node_names()
     edL <- vector("list", length=5)
     names(edL) <- V
