@@ -9,7 +9,7 @@ Authors@R: c(
     person("Qing", "Zhou", role = c("aut"))
     )
 Maintainer: Bryon Aragam <sparsebn@gmail.com>
-Description: Fast methods for learning sparse Bayesian networks from high-dimensional data using sparse regularization, as described in Aragam, Gu, and Zhou (2017) <https://arxiv.org/abs/1703.04025>. Designed to handle mixed experimental and observational data with thousands of variables with either continuous or discrete observations.
+Description: Fast methods for learning sparse Bayesian networks from high-dimensional data using sparse regularization, as described in Aragam, Gu, and Zhou (2017) <arXiv:1703.04025>. Designed to handle mixed experimental and observational data with thousands of variables with either continuous or discrete observations.
 Depends:
     R (>= 3.2.3),
     sparsebnUtils (>= 0.0.5),
