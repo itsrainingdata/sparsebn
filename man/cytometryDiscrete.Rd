@@ -17,13 +17,23 @@ data(cytometryDiscrete)
 }
 \description{
 Data and network for analyzing the flow cytometry experiment
-from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
-The data is a cleaned and discretized version of the raw data (see \code{\link{cytometryContinuous}}) from these experiments.
+from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)} [1].
+The data is a cleaned and discretized version of the raw data (see
+\code{\link{cytometryContinuous}} for details) from these experiments.
+}
+\details{
+After cleaning and pre-processing, the raw continuous measurements have been
+binned into one of three levels: low = 0, medium = 1, or high = 2. Due to the
+pre-processing, the discrete data contains fewer observations (n = 5400)
+compared to the raw, continuous data.
 }
 \examples{
 # Create a valid sparsebnData object from the cytometry data
 data(cytometryDiscrete)
 dat <- sparsebnData(cytometryDiscrete$data, type = "d", ivn = cytometryDiscrete$ivn)
 
+}
+\references{
+[1] Sachs, Karen, et al. "\href{http://science.sciencemag.org/content/308/5721/523.long}{Causal protein-signaling networks derived from multiparameter single-cell data}." Science 308.5721 (2005): 523-529.
 }
 \keyword{datasets}

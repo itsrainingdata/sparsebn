@@ -1,7 +1,7 @@
 sparsebn
 ========
 
-[![Travis-CI Build Status](https://travis-ci.org/itsrainingdata/sparsebn.svg?branch=master)](https://travis-ci.org/itsrainingdata/sparsebn) [![](http://www.r-pkg.org/badges/version/sparsebn)](http://www.r-pkg.org/pkg/sparsebn) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/sparsebn)](http://www.r-pkg.org/pkg/sparsebn)
+[![Project Status: Active The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Travis-CI Build Status](https://travis-ci.org/itsrainingdata/sparsebn.svg?branch=master)](https://travis-ci.org/itsrainingdata/sparsebn) [![](http://www.r-pkg.org/badges/version/sparsebn)](http://www.r-pkg.org/pkg/sparsebn) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/sparsebn)](http://www.r-pkg.org/pkg/sparsebn)
 
 Introducing `sparsebn`: A new R package for learning sparse Bayesian networks and other graphical models from high-dimensional data via sparse regularization. Designed from the ground up to handle:
 

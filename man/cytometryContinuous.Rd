@@ -17,13 +17,24 @@ data(cytometryContinuous)
 }
 \description{
 Data and network for analyzing the flow cytometry experiment
-from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)}.
+from \href{http://science.sciencemag.org/content/308/5721/523.long}{Sachs et al. (2005)} [1].
 This dataset contains the raw measurements from these experiments.
+}
+\details{
+The dataset consists of n = 7466 observations of p = 11 continuous
+variables corresponding to different proteins and phospholipids in human
+immune system cells, and each observation indicates the measured level of
+each biomolecule in a single cell under different experimental interventions.
+Based on this data, a consensus network was reconstructed and validated, which
+is included as well.
 }
 \examples{
 # Create a valid sparsebnData object from the cytometry data
 data(cytometryContinuous)
 dat <- sparsebnData(cytometryContinuous$data, type = "c", ivn = cytometryContinuous$ivn)
 
+}
+\references{
+[1] Sachs, Karen, et al. "\href{http://science.sciencemag.org/content/308/5721/523.long}{Causal protein-signaling networks derived from multiparameter single-cell data}." Science 308.5721 (2005): 523-529.
 }
 \keyword{datasets}
