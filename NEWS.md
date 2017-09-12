@@ -4,6 +4,7 @@
 
 * `estimate.dag` now supports white lists and black lists (#6)
 * Cytoscape compatibility now available via the method `openCytoscape` (#4)
+* `plotDAG` now includes labels for each subplot by default
 * See NEWS files for sparsebnUtils, discretecdAlgorithm, and ccdrAlgorithm for more updates
 
 # sparsebn 0.0.4
