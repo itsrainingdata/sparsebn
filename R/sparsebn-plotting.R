@@ -3,7 +3,7 @@
 #  sparsebn
 #
 #  Created by Bryon Aragam (local) on 10/2/16.
-#  Copyright (c) 2016 Bryon Aragam. All rights reserved.
+#  Copyright (c) 2016-2020 Bryon Aragam. All rights reserved.
 #
 
 #

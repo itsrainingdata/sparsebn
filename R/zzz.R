@@ -3,7 +3,7 @@
 #  sparsebn
 #
 #  Created by Bryon Aragam (local) on 4/5/16.
-#  Copyright (c) 2016 Bryon Aragam. All rights reserved.
+#  Copyright (c) 2016-2020 Bryon Aragam. All rights reserved.
 #
 
 #' @import sparsebnUtils ccdrAlgorithm discretecdAlgorithm
@@ -12,8 +12,8 @@
 
 .onAttach <- function(libname, pkgname){
     msg <- paste0("\n",
-                  "sparsebn v0.0.5, Copyright (c) 2016-2017\n",
-                  "\tBryon Aragam, University of California, Los Angeles\n",
+                  "sparsebn v0.1, Copyright (c) 2016-2020\n",
+                  "\tBryon Aragam, University of Chicago\n",
                   "\tJiaying Gu, University of California, Los Angeles\n",
                   "\tDacheng Zhang, University of California, Los Angeles\n",
                   "\tQing Zhou, University of California, Los Angeles\n",

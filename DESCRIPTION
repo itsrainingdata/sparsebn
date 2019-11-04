@@ -1,7 +1,7 @@
 Package: sparsebn
 Title: Learning Sparse Bayesian Networks from High-Dimensional Data
-Version: 0.0.6
-Date: 2017-09-12
+Version: 0.1
+Date: 2019-11-05
 Authors@R: c(
     person("Bryon", "Aragam", email = "sparsebn@gmail.com", role = c("aut", "cre")),
     person("Jiaying", "Gu", role = c("aut")),
