@@ -1,3 +1,10 @@
+# sparsebn 0.1.0
+
+## Notes
+
+* Companion JSS paper now published, please see citation() for reference
+* Updated CITATION
+
 # sparsebn 0.0.5
 
 ## Features
