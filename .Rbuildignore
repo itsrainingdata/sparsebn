@@ -4,3 +4,4 @@
 ^sparsebn\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
+^CRAN-RELEASE$
