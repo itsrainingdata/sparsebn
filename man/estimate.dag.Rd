@@ -4,10 +4,11 @@
 \alias{estimate.dag}
 \title{Estimate a DAG from data}
 \usage{
-estimate.dag(data, lambdas = NULL, lambdas.length = 20, whitelist = NULL,
-  blacklist = NULL, error.tol = 1e-04, max.iters = NULL,
-  edge.threshold = NULL, concavity = 2, weight.scale = 1, convLb = 0.01,
-  upperbound = 100, adaptive = FALSE, verbose = FALSE)
+estimate.dag(data, lambdas = NULL, lambdas.length = 20,
+  whitelist = NULL, blacklist = NULL, error.tol = 1e-04,
+  max.iters = NULL, edge.threshold = NULL, concavity = 2,
+  weight.scale = 1, convLb = 0.01, upperbound = 100,
+  adaptive = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{data}{Data as \code{\link[sparsebnUtils]{sparsebnData}}.}
